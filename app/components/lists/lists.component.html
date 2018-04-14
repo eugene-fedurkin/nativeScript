@@ -1,0 +1,15 @@
+<ActionBar title="Lists" class="action-bar">
+  <ActionItem (tap)="openForm()" text="Add list"></ActionItem>
+</ActionBar>
+<StackLayout class="page">
+  <TextField [ngModel]="title" hint="Search a list" (ngModelChange)="filterLists($event)" col="0"></TextField>
+
+  <ListView [items]="lists" class="list-group">
+    <ng-template let-item="item">
+      <StackLayout (tap)="openItems(item)" [class.odd]="odd" [class.even]="even">
+        <Label [text]="item.title"></Label>
+        <Button (tap)="delete(item.id)" class="btn btn-primary" text="X"></Button>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</StackLayout>

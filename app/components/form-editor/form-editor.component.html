@@ -1,0 +1,8 @@
+<ActionBar title="Create list"></ActionBar>
+<StackLayout class="page">
+  <TextField [(ngModel)]="title" hint="Title" col="0"></TextField>
+  
+  <TextField [(ngModel)]="title" *ngIf="action === 'create-item'" hint="Description" col="0"></TextField>
+  <Button (tap)="createList()" class="btn btn-primary" text="Create list"></Button>
+  <Button (tap)="closeForm()" class="btn btn-primary" text="Cancel"></Button>
+</StackLayout>

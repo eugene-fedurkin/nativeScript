@@ -1,0 +1,14 @@
+<ActionBar [title]="list.title" class="action-bar">
+  <ActionItem (tap)="openForm()" text="Add item"></ActionItem>
+</ActionBar>
+<StackLayout class="page">
+  <TextField [ngModel]="searchValueToItems" (ngModelChange)="filterItems($event)" hint="Search a list" col="0"></TextField>
+  <ListView [items]="filtredItems" class="list-group">
+    <ng-template let-item="item">
+      <StackLayout [class.odd]="odd" [class.even]="even">
+        <Label [text]="item.title"></Label>
+        <Button (tap)="deleteItem(item.id)" class="btn btn-primary" text="X"></Button>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</StackLayout>
